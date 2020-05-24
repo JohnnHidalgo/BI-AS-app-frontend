@@ -9,6 +9,8 @@ import { EditComponent } from './Persona/edit/edit.component';
 import{FormsModule}from '@angular/forms';
 import{ServiceService}from '../app/Service/service.service';
 import{HttpClientModule}from '@angular/common/http';
+import { AddUserComponent } from './User/add-user/add-user.component';
+import { ListUserComponent } from './User/list-user/list-user.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import{HttpClientModule}from '@angular/common/http';
     AppComponent,
     ListarComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    AddUserComponent,
+    ListUserComponent
    
   ],
   imports: [
