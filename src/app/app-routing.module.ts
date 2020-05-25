@@ -5,6 +5,7 @@ import { AddComponent } from './Persona/add/add.component';
 import { EditComponent } from './Persona/edit/edit.component';
 import { AddUserComponent } from './User/add-user/add-user.component';
 import { ListUserComponent } from './User/list-user/list-user.component';
+import { EditUserComponent } from './User/edit-user/edit-user.component';
 
 const routes: Routes = [
   /*Estos sondel tutorial*/
@@ -14,7 +15,9 @@ const routes: Routes = [
 
   /*Aqui empieza el proyecto */
   {path:'addUser',component:AddUserComponent},
-  {path:'listUser',component:ListUserComponent}
+  {path:'listUser',component:ListUserComponent},
+  {path:'editUser',component:EditUserComponent},
+  
 ];
 
 @NgModule({

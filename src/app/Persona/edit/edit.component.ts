@@ -23,8 +23,8 @@ export class EditComponent implements OnInit {
     .subscribe(data=>{
       this.persona=data;
     })
-
   }
+  
   Actualizar(persona:Persona){
     this.service.updatePersona(persona)
     .subscribe(data=>{

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 import { User } from 'src/app/Modelo/User';
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -16,7 +17,7 @@ export class AddUserComponent implements OnInit {
   }
 
   CreateUser(user:User){
-    this.service.createUser(user)
+    this.service.createUser(this.user)
     .subscribe(data=>{
       alert("Creación Exitosa");
       this.router.navigate(["listUser"]);

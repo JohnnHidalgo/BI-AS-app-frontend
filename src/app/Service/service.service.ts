@@ -26,7 +26,7 @@ export class ServiceService {
     return this.http.delete<Persona>(this.Url+"/"+persona.id);
   }
 
-  getUser(){
+  getUser(){  
     return this.http.get<User[]>(this.Url);
   }
   createUser(user:User){

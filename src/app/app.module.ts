@@ -11,6 +11,7 @@ import{ServiceService}from '../app/Service/service.service';
 import{HttpClientModule}from '@angular/common/http';
 import { AddUserComponent } from './User/add-user/add-user.component';
 import { ListUserComponent } from './User/list-user/list-user.component';
+import { EditUserComponent } from './User/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ListUserComponent } from './User/list-user/list-user.component';
     AddComponent,
     EditComponent,
     AddUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    EditUserComponent
    
   ],
   imports: [
