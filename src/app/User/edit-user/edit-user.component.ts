@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
-import { User } from 'src/app/Modelo/User';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-edit-user',

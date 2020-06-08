@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListarComponent } from './Persona/listar/listar.component';
-import { AddComponent } from './Persona/add/add.component';
-import { EditComponent } from './Persona/edit/edit.component';
 import { AddUserComponent } from './User/add-user/add-user.component';
 import { ListUserComponent } from './User/list-user/list-user.component';
 import { EditUserComponent } from './User/edit-user/edit-user.component';
-import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './view/home/home.component';
+import { DashboardComponent } from './view/dashboard/dashboard.component';
 
 const routes: Routes = [
-  /*Estos sondel tutorial*/
-  {path:'listar', component:ListarComponent},
-  {path:'add',component:AddComponent},
-  {path:'edit',component:EditComponent},
+
 
   /*Aqui empieza el proyecto */
   {path:'home',component:HomeComponent},
