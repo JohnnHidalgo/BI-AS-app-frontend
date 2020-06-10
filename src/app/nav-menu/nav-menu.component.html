@@ -1,5 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
+
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="over" [opened]="false">
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
             <a mat-list-item [routerLink]="['home']">Home</a>
@@ -7,13 +8,13 @@
             <a mat-list-item [routerLink]="['listUser']">Listar Usuario</a>
         </mat-nav-list>
     </mat-sidenav>
+
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <button mat-button (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
             <img src="assets/img/3.png" height="55">
-
         </mat-toolbar>
     </mat-sidenav-content>
 </mat-sidenav-container>

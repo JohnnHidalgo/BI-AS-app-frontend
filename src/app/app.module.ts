@@ -15,7 +15,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ResizableModule } from 'angular-resizable-element';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { DashboardComponent } from './view/dashboard/dashboard.component';
     EditUserComponent,
     NavMenuComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,9 @@ import { DashboardComponent } from './view/dashboard/dashboard.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    DragDropModule,
+    ResizableModule,
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]

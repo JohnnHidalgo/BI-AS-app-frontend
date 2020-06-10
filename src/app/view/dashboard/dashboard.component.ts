@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResizeEvent } from 'angular-resizable-element';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,5 +12,4 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
