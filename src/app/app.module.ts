@@ -17,7 +17,8 @@ import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ResizableModule } from 'angular-resizable-element';
-
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,9 @@ import { ResizableModule } from 'angular-resizable-element';
     MatGridListModule,
     DragDropModule,
     ResizableModule,
+    NgxEchartsModule.forRoot({
+      echarts
+    }),
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
