@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import{FormsModule}from '@angular/forms';
-import{ServiceService}from '../app/Service/service.service';
-import{HttpClientModule}from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ServiceService } from '../app/Service/service.service';
+import { HttpClientModule } from '@angular/common/http';
 import { AddUserComponent } from './User/add-user/add-user.component';
 import { ListUserComponent } from './User/list-user/list-user.component';
 import { EditUserComponent } from './User/edit-user/edit-user.component';
@@ -12,10 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ResizableModule } from 'angular-resizable-element';
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
@@ -57,4 +57,5 @@ import { IgxDataChartInteractivityModule } from 'igniteui-angular-charts';
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+}

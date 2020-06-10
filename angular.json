@@ -23,8 +23,10 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/minireset.css/minireset.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/igniteui-angular/styles/igniteui-angular.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -82,7 +84,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/igniteui-angular/styles/igniteui-angular.css"
             ],
             "scripts": [],
             "assets": [
@@ -134,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "Ejemplo"
+  "defaultProject": "Ejemplo",
+  "cli": {
+    "analytics": "b6eb383c-5bb1-4975-bc84-b2ab3a1c3f85"
+  }
 }

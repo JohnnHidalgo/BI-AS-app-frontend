@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild, OnInit, TemplateRef } from '@angul
 import { IgxGeographicMapComponent } from 'igniteui-angular-maps';
 import { IgxShapeDataSource } from 'igniteui-angular-core';
 import { IgxGeographicHighDensityScatterSeriesComponent } from 'igniteui-angular-maps';
-import WorldUtils from './WorldUtils';
+//import WorldUtils from './WorldUtils';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +10,9 @@ import WorldUtils from './WorldUtils';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+    throw new Error("Method not implemented.");
+  }
   constructor() {}
   @ViewChild ('map')
   public map: IgxGeographicMapComponent;
@@ -58,38 +61,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit() {
-  }
-
-  public ngAfterViewInit(): void {
-    // fetching geographic locations from public JSON folder
-    fetch('assets/Data/AusPlaces.json')
-      .then((response) => response.json())
-      .then((data) => this.onDataLoaded(data, ''));
-  }
-
-  public onDataLoaded(sds: IgxShapeDataSource, e: any) {
-    this.geoLocations = sds;
-    // creating HD series with loaded data
-    const geoSeries = new IgxGeographicHighDensityScatterSeriesComponent();
-    geoSeries.dataSource = sds;
-    geoSeries.longitudeMemberPath = 'x';
-    geoSeries.latitudeMemberPath = 'y';
-    geoSeries.heatMaximumColor = 'Red';
-    geoSeries.heatMinimumColor = 'Black';
-    geoSeries.heatMinimum = 0;
-    geoSeries.heatMaximum = 5;
-    geoSeries.pointExtent = 1;
-    geoSeries.tooltipTemplate = this.tooltip;
-    geoSeries.mouseOverEnabled = true;
-
-    // adding HD series to the geographic amp
-    this.map.series.add(geoSeries);
-
-    // zooming to bound of all geographic locations
-    const geoBounds = WorldUtils.getBounds(this.geoLocations);
-    geoBounds.top = 0;
-    geoBounds.height = -50;
-    this.map.zoomToGeographic(geoBounds);
   }
 
 
