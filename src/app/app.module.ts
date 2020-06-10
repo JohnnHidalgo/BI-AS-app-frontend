@@ -19,6 +19,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ResizableModule } from 'angular-resizable-element';
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { IgxGeographicMapModule } from 'igniteui-angular-maps';
+import { IgxDataChartInteractivityModule } from 'igniteui-angular-charts';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     NgxEchartsModule.forRoot({
       echarts
     }),
+    IgxGeographicMapModule,
+    IgxDataChartInteractivityModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]

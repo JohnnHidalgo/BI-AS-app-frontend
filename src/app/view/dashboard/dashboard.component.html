@@ -20,6 +20,7 @@
                 <mat-grid-tile>
                     <div class="example-boundary">
                         <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+
                             <echarts [initOpts]="initOpts" [options]="options"></echarts>
                         </div>
                     </div>
@@ -37,7 +38,10 @@
                 <mat-grid-tile>
                     <div class="example-boundary">
                         <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
-                            I can only be dragged within the dotted container
+                            <div className="sampleRoot">
+                                <igx-geographic-map #map width="700px" height="500px" zoomable="true">
+                                </igx-geographic-map>
+                            </div>
                         </div>
                     </div>
                 </mat-grid-tile>

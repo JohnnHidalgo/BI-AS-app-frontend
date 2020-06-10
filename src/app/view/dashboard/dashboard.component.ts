@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { AfterViewInit, Component, ViewChild, OnInit } from "@angular/core";
+import { IgxGeographicMapComponent } from 'igniteui-angular-maps';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,12 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild ("map")
+  public map: IgxGeographicMapComponent;
+  
+    constructor() {}
 
-  constructor() {}
+  public ngAfterViewInit(): void {
+    this.map.windowRect = { left: 0.2, top: 0.1, width: 0.7, height: 0.7 };
+  }
 
   ngOnInit() {
   }
 
+  
   initOpts = {
     renderer: 'svg',
     width: 400,
@@ -52,5 +59,7 @@ export class DashboardComponent implements OnInit {
       data: [10, 52, 200, 334, 390, 330, 220]
     }]
   };
-  
+
+
+
 }
