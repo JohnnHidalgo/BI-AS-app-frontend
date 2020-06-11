@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-3">
         <div class="center">
-            <button class="btn btn-warning">Generar Informe</button>
+            <button class="btn btn-warning" (click)="getViews()">Generar Informe</button>
         </div>
         <p> Graficos</p>
         <div class="graphics">
@@ -9,8 +9,13 @@
         </div>
 
         <p> Vistas</p>
-        <div class="graphics">
+        <div class="view-graphics">
+            <mat-grid-list cols="3" rowHeight="2:1">
+                <mat-grid-tile *ngFor="let view of views">
+                    {{view.name}}
+                </mat-grid-tile>
 
+            </mat-grid-list>
         </div>
     </div>
 
@@ -42,6 +47,14 @@
                                 <igx-geographic-map #map width="700px" height="500px" zoomable="true">
                                 </igx-geographic-map>
                             </div>
+
+                            <ng-template let-series="series" let-item="item" #template>
+                                <div>
+                                    <span>
+                                  {{item.name}}
+                              </span>
+                                </div>
+                            </ng-template>
                         </div>
                     </div>
                 </mat-grid-tile>
