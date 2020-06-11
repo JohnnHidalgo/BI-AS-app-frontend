@@ -2,15 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/User';
 import { Dashboard } from '../model/Dashboard';
+import { View } from '../model/View';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ServiceService {
   
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/ejemplo01/user';
+  Url='http://localhost:8080/ejemplo01/k1/user/';
   dashboardUrl='http://localhost:8080/ejemplo01/dashboard';
-
+  viewUrl='http://localhost:8080/ejemplo01/k1/vista/';
 
   getUser(){  
     return this.http.get<User[]>(this.Url);
@@ -31,8 +35,6 @@ export class ServiceService {
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
 
-
-
   getDashboard(){  
     return this.http.get<Dashboard[]>(this.dashboardUrl);
   }
@@ -52,6 +54,14 @@ export class ServiceService {
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
 
+  getView(){
+    return this.http.get<View[]>(this.viewUrl);
+    
+    //return this.http.get<View[]>(this.viewUrl);
+  }
 
+  getViewId(id:number){
+    return this.http.get<View>(this.viewUrl+"/"+id);
+  }
 
 }
