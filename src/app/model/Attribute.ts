@@ -1,0 +1,6 @@
+export class Attribute{
+    idAttribute:number;
+    data:String;
+    active:number;
+    graphicIdGraphic:number;
+}
