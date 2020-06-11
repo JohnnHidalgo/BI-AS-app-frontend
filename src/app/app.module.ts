@@ -33,6 +33,7 @@ import { LoginComponent } from './view/login/login.component';
     HomeComponent,
     DashboardComponent,
     LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
