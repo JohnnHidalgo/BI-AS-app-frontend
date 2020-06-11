@@ -21,6 +21,7 @@ import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { IgxGeographicMapModule } from 'igniteui-angular-maps';
 import { IgxDataChartInteractivityModule } from 'igniteui-angular-charts';
+import { LoginComponent } from './view/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { IgxDataChartInteractivityModule } from 'igniteui-angular-charts';
     NavMenuComponent,
     HomeComponent,
     DashboardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

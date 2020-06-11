@@ -2,6 +2,10 @@ mat-grid-tile {
     background: rgb(196, 178, 16);
 }
 
+view {
+    background: rgb(196, 178, 16);
+}
+
 .example-box {
     width: 100%;
     height: 100%;
@@ -109,6 +113,11 @@ mwlResizable {
     right: 100%;
     height: 38%;
     background: rgb(196, 178, 16);
+}
+
+.view-graphics {
+    right: 100%;
+    height: 38%;
 }
 
 .center {

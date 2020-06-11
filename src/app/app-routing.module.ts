@@ -7,9 +7,6 @@ import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 
 const routes: Routes = [
-
-
-  /*Aqui empieza el proyecto */
   {path:'home',component:HomeComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'addUser',component:AddUserComponent},

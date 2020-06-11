@@ -7,18 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Ejemplo';
+  title = 'BI-AS';
 
   constructor(private router:Router){}
-
-  
-  Listar(){
-    this.router.navigate(["listar"]);
-  }
-  Nuevo(){
-    this.router.navigate(["add"]);
-  }
-
 
   AddUser(){
     this.router.navigate(["addUser"]);
