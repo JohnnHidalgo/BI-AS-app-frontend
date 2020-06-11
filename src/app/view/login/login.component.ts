@@ -16,10 +16,17 @@ export class LoginComponent implements OnInit {
 
   }
 
+  /*
+  myFunction() {
+    document.getElementById("frm1").submit();
+  }
+  */
 
-  Login(user:User){
-    this.service.loginUser(user);
-    console.log(user.name);
+  Login(){
+
+    //var nameValue = document.getElementById("uniqueID").value;
+    //this.service.loginUser(user);
+    //console.log(nickname);
   }
 
 }
