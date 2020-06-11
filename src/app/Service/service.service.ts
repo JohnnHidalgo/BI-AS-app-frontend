@@ -35,6 +35,11 @@ export class ServiceService {
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
 
+  loginUser(user:User){
+    return this.http.post<User>(this.Url+"/"+user.idUser,user);
+  }
+
+
   getDashboard(){  
     return this.http.get<Dashboard[]>(this.dashboardUrl);
   }

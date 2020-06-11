@@ -23,7 +23,6 @@ export class ListUserComponent implements OnInit {
   EditUser(user:User):void{
     localStorage.setItem("id",user.idUser.toString());
     this.router.navigate(["editUser"])
-
   }
 
   Delete(user:User){
