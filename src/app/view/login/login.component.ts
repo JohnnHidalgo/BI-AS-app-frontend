@@ -8,25 +8,27 @@ import { User } from 'src/app/model/User';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-
+export class LoginComponent implements OnInit{
+  ngOnInit(){
+  }
   constructor(private service: ServiceService, private router: Router) { }
 
-  ngOnInit() {
+  nickname: string;
+  password: string;
 
+
+  login() {
+    console.log(this.nickname);
+    console.log(this.password);
+
+    var logUser = new User();
+    logUser.nicknameUser= this.nickname;
+    logUser.password= this.password;
+
+    console.log(logUser);
+    this.service.loginUser(logUser);
+   
   }
 
-  /*
-  myFunction() {
-    document.getElementById("frm1").submit();
-  }
-  */
-
-  Login(){
-
-    //var nameValue = document.getElementById("uniqueID").value;
-    //this.service.loginUser(user);
-    //console.log(nickname);
-  }
 
 }
