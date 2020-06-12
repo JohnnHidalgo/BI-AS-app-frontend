@@ -129,6 +129,7 @@ export class ServiceService {
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
 
+  
   getGraphicType(){
     return this.http.get<GraphicType[]>(this.graphicTypeUrl);
     //return this.http.get<View[]>(this.viewUrl);
