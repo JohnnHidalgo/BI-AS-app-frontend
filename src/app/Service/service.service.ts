@@ -13,7 +13,7 @@ export class ServiceService {
   constructor(private http:HttpClient) { }
 
   Url='http://localhost:8080/ejemplo01/k1/user/';
-  dashboardUrl='http://localhost:8080/ejemplo01/dashboard';
+  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard/';
   viewUrl='http://localhost:8080/ejemplo01/k1/vista/';
 
   getUser(){  
@@ -36,7 +36,7 @@ export class ServiceService {
   }
 
   loginUser(user:User){
-    return this.http.put<User>(this.Url+"/"+user.idUser,user);
+    return this.http.put<User>(this.Url+"/"+user.idUser,user);  
   }
 
 
@@ -68,5 +68,7 @@ export class ServiceService {
   getViewId(id:number){
     return this.http.get<View>(this.viewUrl+"/"+id);
   }
+
+
 
 }
