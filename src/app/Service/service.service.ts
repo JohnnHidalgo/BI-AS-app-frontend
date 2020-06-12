@@ -28,7 +28,7 @@ export class ServiceService {
     return this.http.get<User[]>(this.Url);
   }
   createUser(user:User){
-    return this.http.post<User>(this.Url,user);
+    return this.http.post<User>(this.Url+"/add/",user);
   }
   getUserId(id:number){
     return this.http.get<User>(this.Url+"/"+id);
@@ -42,8 +42,10 @@ export class ServiceService {
     //borrado fisico
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
+
+
   loginUser(user:User){
-    return this.http.put<User>(this.Url+"/"+user.idUser,user);
+    return this.http.post<User>(this.Url+"/login/",user);
   }
 
 
