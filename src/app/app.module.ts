@@ -25,7 +25,7 @@ import { LoginComponent } from './view/login/login.component';
 import { ViewComponent } from './view/view/view.component';
 import {MatDialogModule} from "@angular/material";
 import { DialogComponent } from './dialog/dialog.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -61,8 +61,8 @@ import { DialogComponent } from './dialog/dialog.component';
     }),
     IgxGeographicMapModule,
     IgxDataChartInteractivityModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    MatTabsModule    
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent],
