@@ -1,3 +1,12 @@
-<p>
-  dialog works!
-</p>
+<h4 mat-dialog-title>Crear nuevo proyecto</h4>
+<div mat-dialog-content>
+  <p>Escribe el nombre del nuevo proyecto:</p>
+  <mat-form-field>
+    <mat-label>Nombre del proyecto</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseDialog()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Crear</button>
+</div>

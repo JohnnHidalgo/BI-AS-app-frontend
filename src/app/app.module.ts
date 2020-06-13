@@ -25,7 +25,8 @@ import { LoginComponent } from './view/login/login.component';
 import { ViewComponent } from './view/view/view.component';
 import {MatDialogModule} from "@angular/material";
 import { DialogComponent } from './dialog/dialog.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { DialogComponent } from './dialog/dialog.component';
     MatIconModule,
     MatListModule,
     MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
     DragDropModule,
     ResizableModule,
     NgxEchartsModule.forRoot({
