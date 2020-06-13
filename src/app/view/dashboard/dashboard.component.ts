@@ -33,7 +33,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
   getgraphics(view:View):void{
     localStorage.setItem("id",view.idView.toString());
-    console.log("Click");
     console.log(view);
   }
   getUser(){

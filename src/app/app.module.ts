@@ -27,6 +27,7 @@ import {MatDialogModule} from "@angular/material";
 import { DialogComponent } from './dialog/dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -64,8 +65,8 @@ import { MatInputModule } from '@angular/material/input';
     }),
     IgxGeographicMapModule,
     IgxDataChartInteractivityModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    MatTabsModule    
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent],

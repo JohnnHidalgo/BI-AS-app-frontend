@@ -17,7 +17,7 @@ export class ServiceService {
 
   Url='http://localhost:8080/ejemplo01/k1/user/';
   dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard/';
-  viewUrl='http://localhost:8080/ejemplo01/k1/vista/';
+  viewUrl='http://localhost:8080/ejemplo01/k1/view/';
   attributeUrl='http://localhost:8080/ejemplo01/k1/atributo/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/grafico/';
   graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
