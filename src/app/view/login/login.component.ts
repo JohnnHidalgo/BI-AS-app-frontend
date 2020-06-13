@@ -23,12 +23,24 @@ export class LoginComponent implements OnInit{
 
     var logUser = new User();
     logUser.nicknameUser= this.nickname;
-    logUser.password= this.password;
+    logUser.password = this.password;
 
     console.log(logUser);
-    this.service.loginUser(logUser);
+    this.service.loginUser(logUser)
+    .subscribe(data=>{
+      
+      if (data!=null) {
+
+        alert("Ingreso al sistema");
+      this.router.navigate(["home"]);
+        
+      }else{
+        alert("Ingreso fallido");
+
+      }
+      
+    })
    
   }
-
 
 }

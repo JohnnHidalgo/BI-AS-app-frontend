@@ -43,10 +43,10 @@ export class ServiceService {
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
 
-
   loginUser(user:User){
+    return this.http.post<User>(this.Url+"/login",user);
     //return this.http.put<User>(this.Url+"/"+user.idUser,user);  
-    return this.http.post<User>(this.Url+"/login/",user);
+    //return this.http.post<User>(this.Url+"/login/",user);
   }
 
 

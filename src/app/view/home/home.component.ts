@@ -4,6 +4,9 @@ import { ResizeEvent } from 'angular-resizable-element';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Dashboard } from 'src/app/model/Dashboard';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+//import {MatDialog} from '@angular/material'
+import { DialogComponent } from 'src/app/dialog/dialog.component';
+
 
 export interface DialogData {
   name: String;
@@ -20,7 +23,8 @@ export class HomeComponent implements OnInit {
   dashboardlist: Dashboard[];
   name: string;
   
-  constructor(private router:Router, private service:ServiceService, public dialog: MatDialog) { }
+  constructor(private router:Router, private service:ServiceService, public dialog:MatDialog) { }
+  
   ngOnInit() {
     this.service.getDashboard()
     .subscribe(dashboard=>{
@@ -62,17 +66,22 @@ export class HomeComponent implements OnInit {
  // End code for verification 
 
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {name: this.name}
-    });
+openDialog(){
+  this.dialog.open(DialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.name = result;
-    });
-  }
+} 
+
+/*openDialog(): void {
+  const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    width: '250px',
+    data: {name: this.name}
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    this.name = result;
+  });
+}*/
 
 }
 
