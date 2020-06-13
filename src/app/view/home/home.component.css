@@ -1,3 +1,12 @@
 mat-grid-tile {
     background: rgb(196, 178, 16);
 }
+
+.newDashButton {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
