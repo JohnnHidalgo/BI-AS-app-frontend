@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { View } from 'src/app/model/View';
+import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-view',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+  view: View= new View();
+
+
+  constructor(private service:ServiceService) { }
 
   ngOnInit() {
+    this.getView();
+  }
+
+
+  getView(){
+    let id = localStorage.getItem("id");
+    this.service.getViewId(+id)
+    .subscribe(data=>{
+      this.view=data;
+    })
   }
 
 }

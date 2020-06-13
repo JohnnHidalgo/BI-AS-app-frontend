@@ -1,4 +1,4 @@
-export interface View{
+export class View{
     idView:number;
     name:String;
     txUser:String;
