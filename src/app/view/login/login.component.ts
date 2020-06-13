@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit{
     .subscribe(data=>{
       
       if (data!=null) {
+
         alert("Ingreso al sistema");
+      this.router.navigate(["home"]);
         
       }else{
         alert("Ingreso fallido");
