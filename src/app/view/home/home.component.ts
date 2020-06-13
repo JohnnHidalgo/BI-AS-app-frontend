@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ResizeEvent } from 'angular-resizable-element';
+import { ServiceService } from 'src/app/Service/service.service';
+import { Dashboard } from 'src/app/model/Dashboard';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +11,34 @@ import { ResizeEvent } from 'angular-resizable-element';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  dashboardlist: Dashboard[];
+  
+  constructor(private router:Router, private service:ServiceService) { }
   ngOnInit() {
+    this.service.getDashboard()
+    .subscribe(dashboard=>{
+      this.dashboardlist = dashboard;
+    });
   }
-  dashboard(){
+  
+  dashboardRoute(){
     this.router.navigate(["dashboard"]);
   }
 
-
   public style: object = {};
+
+
+
+
+
+
+
+
+
+
+
+
+//verificra que hace este codigo
 
   validate(event: ResizeEvent): boolean {
     const MIN_DIMENSIONS_PX: number = 50;

@@ -13,13 +13,10 @@
 </div>
 <div>
     <mat-grid-list cols="4" rowHeight="2:1">
-        <mat-grid-tile>1
-            <button (click)="dashboard()" class="btn btn-info" style="margin-left: 10px;">Ver</button>
+        <mat-grid-tile *ngFor="let dashboard of dashboardlist">
+            {{dashboard.name}}
+            <button (click)="dashboardRoute()" class="btn btn-info" style="margin-left: 10px;">Ver</button>
         </mat-grid-tile>
-        <mat-grid-tile>2</mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
+
     </mat-grid-list>
 </div>
