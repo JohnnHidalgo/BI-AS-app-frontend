@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/User';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { User } from 'src/app/model/User';
 export class LoginComponent implements OnInit{
   ngOnInit(){
   }
-  constructor(private service: ServiceService, private router: Router) { }
+  constructor(private service: ServiceService, private router: Router, private snackBar: MatSnackBar) { }
 
   nickname: string;
   password: string;
@@ -30,13 +31,11 @@ export class LoginComponent implements OnInit{
     .subscribe(data=>{
       
       if (data!=null) {
-
-        alert("Ingreso al sistema");
-      this.router.navigate(["home"]);
+        this.snackBar.open('Bienvenido', '', {duration: 2000,});
+        this.router.navigate(["home"]); 
         
       }else{
-        alert("Ingreso fallido");
-
+        this.snackBar.open('Acceso denegado', '', {duration: 2000,})
       }
       
     })

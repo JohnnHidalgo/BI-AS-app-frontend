@@ -7,6 +7,7 @@ import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { LoginComponent } from './view/login/login.component';
 import { ViewComponent } from './view/view/view.component';
+import { DatasetComponent } from './view/dataset/dataset.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'listUser',component:ListUserComponent},
   {path:'editUser',component:EditUserComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'view', component:ViewComponent}
+  {path: 'view', component:ViewComponent},
+  {path: 'dataset', component:DatasetComponent}
  
   
 ];

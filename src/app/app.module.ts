@@ -28,6 +28,8 @@ import { DialogComponent } from './dialog/dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DatasetComponent } from './view/dataset/dataset.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     LoginComponent,
     ViewComponent,
     DialogComponent,
+    DatasetComponent,
     
   ],
   imports: [
@@ -66,7 +69,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     IgxGeographicMapModule,
     IgxDataChartInteractivityModule,
     MatDialogModule,
-    MatTabsModule    
+    MatTabsModule,
+    MatSnackBarModule,
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent],
