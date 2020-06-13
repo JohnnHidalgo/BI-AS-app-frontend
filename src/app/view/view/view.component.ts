@@ -18,7 +18,6 @@ export class ViewComponent implements OnInit {
     this.getView();
   }
 
-
   getView(){
     let id = localStorage.getItem("id");
     this.service.getViewId(+id)

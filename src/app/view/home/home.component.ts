@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ResizeEvent } from 'angular-resizable-element';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Dashboard } from 'src/app/model/Dashboard';
+import {MatDialog} from '@angular/material'
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +15,18 @@ export class HomeComponent implements OnInit {
 
   dashboardlist: Dashboard[];
   
-  constructor(private router:Router, private service:ServiceService) { }
+  constructor(private router:Router, private service:ServiceService, public dialog:MatDialog) { }
   ngOnInit() {
     this.service.getDashboard()
     .subscribe(dashboard=>{
       this.dashboardlist = dashboard;
     });
+  }
+
+
+  openDialog(){
+    this.dialog.open(DialogComponent);
+
   }
   
   dashboardRoute(){

@@ -23,6 +23,9 @@ import { IgxGeographicMapModule } from 'igniteui-angular-maps';
 import { IgxDataChartInteractivityModule } from 'igniteui-angular-charts';
 import { LoginComponent } from './view/login/login.component';
 import { ViewComponent } from './view/view/view.component';
+import {MatDialogModule} from "@angular/material";
+import { DialogComponent } from './dialog/dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import { ViewComponent } from './view/view/view.component';
     DashboardComponent,
     LoginComponent,
     ViewComponent,
+    DialogComponent,
     
   ],
   imports: [
@@ -56,10 +60,13 @@ import { ViewComponent } from './view/view/view.component';
       echarts
     }),
     IgxGeographicMapModule,
-    IgxDataChartInteractivityModule
+    IgxDataChartInteractivityModule,
+    MatDialogModule
+    
   ],
   providers: [ServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 
 export class AppModule {
