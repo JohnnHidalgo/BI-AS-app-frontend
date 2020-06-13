@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
 
   openDialog(){
     this.dialog.open(DialogComponent);
-
   }
   
   dashboardRoute(){
