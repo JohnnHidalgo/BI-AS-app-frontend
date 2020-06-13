@@ -5,4 +5,5 @@ export class Dashboard{
     txHost:String;
     txDate:String;
     active:number;
+    idUser:number;
 }

@@ -54,7 +54,7 @@ export class ServiceService {
     return this.http.get<Dashboard[]>(this.dashboardUrl);
   }
   createDashboard(dashboard:Dashboard){
-    return this.http.post<Dashboard>(this.dashboardUrl,dashboard);
+    return this.http.post<Dashboard>(this.dashboardUrl+"/add/",dashboard);
   }
   getDashboardId(id:number){
     return this.http.get<Dashboard>(this.dashboardUrl+"/"+id);

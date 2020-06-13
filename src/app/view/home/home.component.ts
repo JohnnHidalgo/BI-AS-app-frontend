@@ -82,8 +82,18 @@ export class HomeComponent implements OnInit {
 
   createDashboard(){
     var str = this.name;
+    //dashboard2:Dashboard = new Dashboard();
+    this.dashboard.name = this.name;
+    this.dashboard.txUser = 'Pepe';
+    this.dashboard.txHost = 'localhost';
+    this.dashboard.txDate = Date.now().toString();
+    this.dashboard.active = 1;
+    this.dashboard.idUser = 3;
     if (str != null) {
-      console.log('Success');
+      this.service.createDashboard(this.dashboard)
+      .subscribe(data => {
+        console.log('Success');
+      })
     }else{
       console.log('Fail');
     }
