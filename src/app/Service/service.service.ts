@@ -45,11 +45,8 @@ export class ServiceService {
 
 
   loginUser(user:User){
-<<<<<<< HEAD
-    return this.http.put<User>(this.Url+"/"+user.idUser,user);  
-=======
+    //return this.http.put<User>(this.Url+"/"+user.idUser,user);  
     return this.http.post<User>(this.Url+"/login/",user);
->>>>>>> 5f22bfc5985ce1d5bbeb0fe9e4c4baa4cb285463
   }
 
 

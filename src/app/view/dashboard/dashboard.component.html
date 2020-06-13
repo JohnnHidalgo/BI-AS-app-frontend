@@ -12,12 +12,16 @@
         <div class="view-graphics">
             <mat-grid-list cols="3" rowHeight="2:1">
                 <mat-grid-tile *ngFor="let view of views">
-                    {{view.name}}
+                    <button (click)="getgraphics(view)">
+                        {{view.name}}
+                    </button>
                 </mat-grid-tile>
-
             </mat-grid-list>
         </div>
     </div>
+
+
+
 
     <div class="col-sm-9">
         <div class="mat-app-background basic-container">
