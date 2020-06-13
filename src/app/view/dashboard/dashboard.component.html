@@ -5,28 +5,23 @@
         </div>
         <p> Graficos</p>
         <div class="graphics">
-
         </div>
 
+        <div class="center">
+            <button class="btn btn-warning"> Agregar nueva Vista</button>
+        </div>
     </div>
 
 
-
-
     <div class="col-sm-9">
-        <div class="row">
-
-            <div class="col-sm-1">
-                <p> Vistas</p>
-            </div>
-            <div class="col-sm-1">
-                <button class="viewbutton">
-                    <img src="assets/img/addIcon.png" >
-                </button>
-            </div>
-        </div>
-
         <mat-tab-group>
+
+            <mat-tab label="Data set">
+
+                <app-dataset></app-dataset>
+
+            </mat-tab>
+
             <mat-tab *ngFor="let view of views" label="{{view.name}}">
                 {{view.name}}
                 <app-view></app-view>

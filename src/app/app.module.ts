@@ -26,6 +26,8 @@ import { ViewComponent } from './view/view/view.component';
 import {MatDialogModule} from "@angular/material";
 import { DialogComponent } from './dialog/dialog.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DatasetComponent } from './view/dataset/dataset.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     LoginComponent,
     ViewComponent,
     DialogComponent,
+    DatasetComponent,
     
   ],
   imports: [
@@ -62,7 +65,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     IgxGeographicMapModule,
     IgxDataChartInteractivityModule,
     MatDialogModule,
-    MatTabsModule    
+    MatTabsModule,
+    MatSnackBarModule,
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent],
