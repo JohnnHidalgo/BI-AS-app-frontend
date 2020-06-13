@@ -6,6 +6,15 @@ view {
     background: rgb(196, 178, 16);
 }
 
+.viewbutton {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
 .example-box {
     width: 100%;
     height: 100%;
