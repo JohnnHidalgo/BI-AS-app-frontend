@@ -75,7 +75,7 @@ export class ServiceService {
     //return this.http.get<View[]>(this.viewUrl);
   }
   createView(view:View){
-    return this.http.post<View[]>(this.viewUrl,view);
+    return this.http.post<View>(this.viewUrl,view);
   }
   getViewId(id:number){
     return this.http.get<View>(this.viewUrl+"/"+id);
@@ -96,7 +96,7 @@ export class ServiceService {
     //return this.http.get<View[]>(this.viewUrl);
   }
   createAttribute(attribute:Attribute){
-    return this.http.post<Attribute[]>(this.attributeUrl+"/add/",attribute);
+    return this.http.post<Attribute>(this.attributeUrl+"/add/",attribute);
   }
   getAttributeId(id:number){
     return this.http.get<Attribute>(this.attributeUrl+"/"+id);
@@ -117,7 +117,7 @@ export class ServiceService {
     //return this.http.get<View[]>(this.viewUrl);
   }
   createGraphic(graphic:Graphic){
-    return this.http.post<Graphic[]>(this.graphicUrl,graphic);
+    return this.http.post<Graphic>(this.graphicUrl,graphic);
   }
   getGraphicId(id:number){
     return this.http.get<Graphic>(this.graphicUrl+"/"+id);
@@ -152,8 +152,6 @@ export class ServiceService {
     //borrado fisico
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
-
-
 
 
 }
