@@ -3,10 +3,8 @@ import { Router } from '@angular/router';
 import { ResizeEvent } from 'angular-resizable-element';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Dashboard } from 'src/app/model/Dashboard';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-//import {MatDialog} from '@angular/material'
+import {MatDialog} from '@angular/material'
 import { DialogComponent } from 'src/app/dialog/dialog.component';
-
 
 export interface DialogData {
   name: String;
@@ -30,11 +28,6 @@ export class HomeComponent implements OnInit {
     .subscribe(dashboard=>{
       this.dashboardlist = dashboard;
     });
-  }
-
-
-  openDialog(){
-    this.dialog.open(DialogComponent);
   }
   
   dashboardRoute(){
@@ -71,34 +64,40 @@ export class HomeComponent implements OnInit {
  // End code for verification 
 
 
+  openDialog(){
+    
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: {name: this.name}
+    });
 
-/*openDialog(): void {
-  const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-    width: '250px',
-    data: {name: this.name}
-  });
 
-  dialogRef.afterClosed().subscribe(result => {
-    console.log('The dialog was closed');
-    this.name = result;
-  });
-}*/
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.name = result;
+      console.log(this.name);
+      this.createDashboard();
+    });
+    
+  }
 
-}
-
-@Component({
-  selector: 'app-home-dialog',
-  templateUrl: './homeDialog.component.html',
-})
-
-export class DialogOverviewExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
+  createDashboard(){
+    var str = this.name;
+    //dashboard2:Dashboard = new Dashboard();
+    this.dashboard.name = this.name;
+    this.dashboard.txUser = 'Pepe';
+    this.dashboard.txHost = 'localhost';
+    this.dashboard.txDate = Date.now().toString();
+    this.dashboard.active = 1;
+    this.dashboard.idUser = 3;
+    if (str != null) {
+      this.service.createDashboard(this.dashboard)
+      .subscribe(data => {
+        console.log('Success');
+      })
+    }else{
+      console.log('Fail');
+    }
+    
   }
 
 }

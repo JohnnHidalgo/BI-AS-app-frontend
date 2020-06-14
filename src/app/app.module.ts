@@ -25,6 +25,8 @@ import { LoginComponent } from './view/login/login.component';
 import { ViewComponent } from './view/view/view.component';
 import {MatDialogModule} from "@angular/material";
 import { DialogComponent } from './dialog/dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DatasetComponent } from './view/dataset/dataset.component';
@@ -57,6 +59,8 @@ import { DatasetComponent } from './view/dataset/dataset.component';
     MatIconModule,
     MatListModule,
     MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
     DragDropModule,
     ResizableModule,
     NgxEchartsModule.forRoot({
