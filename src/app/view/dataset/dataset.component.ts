@@ -48,6 +48,7 @@ export class DatasetComponent implements OnInit {
     console.log(csvRecordsArray);
     this.atributeForBack.active=1;
     this.atributeForBack.data = csvRecordsArray;
+    this.atributeForBack.graphicidgraphic = 1;
     //this.atributeForBack.data = 'csvRecordsArray';
     //console.log()
     this.service.createAttribute(this.atributeForBack)
