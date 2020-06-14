@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { CSVRecord } from 'src/app/model/CSVRecord';
+import { ServiceService } from 'src/app/Service/service.service';
+import { Attribute } from 'src/app/model/Attribute';
 
 @Component({
   selector: 'app-dataset',
@@ -7,20 +9,17 @@ import { CSVRecord } from 'src/app/model/CSVRecord';
   styleUrls: ['./dataset.component.css']
 })
 export class DatasetComponent implements OnInit {
+  atribute:Attribute = new Attribute();
+  atributeForBack:Attribute = new Attribute();
 
-
-    
-  constructor() { }
+  constructor(private service:ServiceService) { }
 
   ngOnInit() {
   }
 
-
   title = 'Angular7-readCSV';
   public records: any[] = [];
   @ViewChild('csvReader') csvReader: any;
-
-
 
   uploadListener($event: any): void {
     let text = [];
@@ -46,6 +45,15 @@ export class DatasetComponent implements OnInit {
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
     let csvArr = [];
+    console.log(csvRecordsArray);
+    this.atributeForBack.active=1;
+    this.atributeForBack.data = 'csvRecordsArray';
+    //console.log()
+    this.service.createAttribute(this.atributeForBack)
+    .subscribe(data=>{
+      alert("Creacios Exitosa");
+    })
+    //createAtribute(this.atributeForBack);
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let curruntRecord = (<string>csvRecordsArray[i]).split(',');
       if (curruntRecord.length == headerLength) {
@@ -81,5 +89,11 @@ export class DatasetComponent implements OnInit {
     this.records = [];
   }
 
+  createAtribute(atribute:Attribute){
+    this.service.createAttribute(this.atribute)
+    .subscribe(data=>{
+      alert("Creacios Exitosa");
+    })
+  }
 
 }

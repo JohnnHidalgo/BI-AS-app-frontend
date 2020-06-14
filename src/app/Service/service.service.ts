@@ -18,7 +18,7 @@ export class ServiceService {
   Url='http://localhost:8080/ejemplo01/k1/user/';
   dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard/';
   viewUrl='http://localhost:8080/ejemplo01/k1/view/';
-  attributeUrl='http://localhost:8080/ejemplo01/k1/atributo/';
+  attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/grafico/';
   graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
 
@@ -96,7 +96,7 @@ export class ServiceService {
     //return this.http.get<View[]>(this.viewUrl);
   }
   createAttribute(attribute:Attribute){
-    return this.http.post<Attribute[]>(this.attributeUrl,attribute);
+    return this.http.post<Attribute[]>(this.attributeUrl+"/add/",attribute);
   }
   getAttributeId(id:number){
     return this.http.get<Attribute>(this.attributeUrl+"/"+id);
