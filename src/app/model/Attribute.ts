@@ -1,6 +1,6 @@
 export class Attribute{
     idAttribute:number;
-    data:String;
+    datos:String;
     active:number;
     graphicidgraphic:number;
 }
