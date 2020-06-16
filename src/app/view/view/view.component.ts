@@ -15,15 +15,7 @@ export class ViewComponent implements OnInit {
   constructor(private service:ServiceService) { }
 
   ngOnInit() {
-    this.getView();
+    
   }
-
-  getView(){
-    let id = localStorage.getItem("id");
-    this.service.getViewId(+id)
-    .subscribe(data=>{
-      this.view=data;
-    })
-  }
-
+  
 }

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-3">
         <div class="center">
-            <button class="btn btn-warning" (click)="getViews()">Generar Informe</button>
+            <button class="btn btn-warning" (click)="getUser()">Generar Informe</button>
         </div>
         <p> Graficos</p>
         <div class="graphics">
@@ -15,18 +15,13 @@
 
     <div class="col-sm-9">
         <mat-tab-group>
-
             <mat-tab label="Data set">
-
                 <app-dataset></app-dataset>
-
             </mat-tab>
-
             <mat-tab *ngFor="let view of views" label="{{view.name}}">
                 {{view.name}}
                 <app-view></app-view>
             </mat-tab>
-
         </mat-tab-group>
     </div>
 </div>

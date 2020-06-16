@@ -31,7 +31,9 @@ export class HomeComponent implements OnInit {
     });
   }
   
-  dashboardRoute(){
+  dashboardRoute(dash:Dashboard):void{
+    localStorage.setItem("id",dash.idDashboard.toString());
+    console.log(dash.idDashboard.toString());
     this.router.navigate(["dashboard"]);
   }
 

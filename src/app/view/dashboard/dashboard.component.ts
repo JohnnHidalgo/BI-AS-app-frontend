@@ -12,6 +12,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 import { User } from 'src/app/model/User';
 import {MatDialog} from '@angular/material';
 import { ViewdialogComponent } from 'src/app/dialogs/viewdialog/viewdialog.component';
+import { Dashboard } from 'src/app/model/Dashboard';
 
 
 export interface DialogData {
@@ -29,37 +30,39 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   user : User[];
   newViewName: string;
   newview: View = new View();
+  newDash: Dashboard = new Dashboard();
+
   constructor(private service: ServiceService, public dialog:MatDialog) {}
 
   /*recive view data */
-
   ngOnInit() {
-    this.service.getView()
-    .subscribe(view=>{
-      this.views = view;
-    });
+    this.getViews();
   }
+
+  getViews(){
+    var idDash:number = +localStorage.getItem("id");
+    console.log("El id del dash");
+    console.log(idDash);
+    this.newview.name = 'TheView';
+    this.newview.idDashboard=idDash;
+    this.newview.active = 1;
+    this.newview.txDate = Date.now().toString();
+    this.newview.txHost = 'localhost';
+    this.newview.txUser = 'TheUser';
+    console.log(this.newview);
+
+    this.service.getViewbyDashboard(idDash)
+    .subscribe(view=>{
+      this.views=view;
+      console.log(this.views);
+    })
+
+  }
+
   getgraphics(view:View):void{
     localStorage.setItem("id",view.idView.toString());
     console.log(view);
-  }
-  getUser(){
-    this.service.getUserId(1)
-    .subscribe(user=>{
-      console.log(user);
-    })
-  }
-  getViews(){
-    this.service.getView()
-    .subscribe(view=>{
-        console.log(view);
-    });
-  }
-  getView(){
-    this.service.getViewId(1)
-    .subscribe(view=>{
-      console.log(view);
-    });
+
   }
 
   @ViewChild ('map')
@@ -169,7 +172,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     symbolSeries.markerOutline = "rgba(0,0,0,0.3)";
     symbolSeries.tooltipTemplate = this.tooltipTemplate;
 
-    this.map.series.add(symbolSeries);
+    //this.map.series.add(symbolSeries);
   }
 
   openDialog(){

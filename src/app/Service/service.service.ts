@@ -72,7 +72,10 @@ export class ServiceService {
 
   getView(){
     return this.http.get<View[]>(this.viewUrl);
-    //return this.http.get<View[]>(this.viewUrl);
+  }
+
+  getViewbyDashboard(idDash:number){
+    return this.http.get<View[]>(this.viewUrl+"/dashviews/"+idDash);
   }
   createView(view:View){
     return this.http.post<View>(this.viewUrl+"/add/",view);
