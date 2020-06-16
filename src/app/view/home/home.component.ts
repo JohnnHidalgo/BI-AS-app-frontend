@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { ResizeEvent } from 'angular-resizable-element';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Dashboard } from 'src/app/model/Dashboard';
-import {MatDialog} from '@angular/material'
-import { DialogComponent } from 'src/app/dialog/dialog.component';
+import {MatDialog} from '@angular/material';
+import { DashboarddialogComponent } from 'src/app/dialogs/dashboarddialog/dashboarddialog.component';
+
 
 export interface DialogData {
   name: String;
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   dashboard:Dashboard = new Dashboard();
   dashboardlist: Dashboard[];
-  name: string;
+  newDashboardName: string;
   
   constructor(private router:Router, private service:ServiceService, public dialog:MatDialog) { }
   
@@ -66,29 +67,29 @@ export class HomeComponent implements OnInit {
 
   openDialog(){
     
-    const dialogRef = this.dialog.open(DialogComponent, {
-      data: {name: this.name}
+    const dialogRef = this.dialog.open(DashboarddialogComponent, {
+      data: {name: this.newDashboardName}
     });
 
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.name = result;
-      console.log(this.name);
+      this.newDashboardName = result;
+      console.log(this.newDashboardName);
       this.createDashboard();
     });
     
   }
 
   createDashboard(){
-    var str = this.name;
+    var str = this.newDashboardName;
     //dashboard2:Dashboard = new Dashboard();
-    this.dashboard.name = this.name;
+    this.dashboard.name = this.newDashboardName;
     this.dashboard.txUser = 'Pepe';
     this.dashboard.txHost = 'localhost';
     this.dashboard.txDate = Date.now().toString();
     this.dashboard.active = 1;
-    this.dashboard.idUser = 3;
+    this.dashboard.idUser = 1;
     if (str != null) {
       this.service.createDashboard(this.dashboard)
       .subscribe(data => {

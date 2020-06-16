@@ -75,7 +75,7 @@ export class ServiceService {
     //return this.http.get<View[]>(this.viewUrl);
   }
   createView(view:View){
-    return this.http.post<View>(this.viewUrl,view);
+    return this.http.post<View>(this.viewUrl+"/add/",view);
   }
   getViewId(id:number){
     return this.http.get<View>(this.viewUrl+"/"+id);

@@ -24,12 +24,13 @@ import { IgxDataChartInteractivityModule } from 'igniteui-angular-charts';
 import { LoginComponent } from './view/login/login.component';
 import { ViewComponent } from './view/view/view.component';
 import {MatDialogModule} from "@angular/material";
-import { DialogComponent } from './dialog/dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DatasetComponent } from './view/dataset/dataset.component';
+import { ViewdialogComponent } from './dialogs/viewdialog/viewdialog.component';
+import { DashboarddialogComponent } from './dialogs/dashboarddialog/dashboarddialog.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,9 @@ import { DatasetComponent } from './view/dataset/dataset.component';
     DashboardComponent,
     LoginComponent,
     ViewComponent,
-    DialogComponent,
     DatasetComponent,
-    
+    ViewdialogComponent,
+    DashboarddialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +75,7 @@ import { DatasetComponent } from './view/dataset/dataset.component';
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent]
+  entryComponents: [DashboarddialogComponent, ViewdialogComponent]
 })
 
 export class AppModule {

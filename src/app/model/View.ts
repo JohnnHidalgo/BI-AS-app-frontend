@@ -5,4 +5,5 @@ export class View{
     txHost:String;
     txDate:String;
     active:number;
+    idDashboard:number;
 }

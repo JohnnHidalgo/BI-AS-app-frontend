@@ -10,7 +10,13 @@ import WorldLocations from './WorldLocations';
 import { View } from 'src/app/model/View';
 import { ServiceService } from 'src/app/Service/service.service';
 import { User } from 'src/app/model/User';
+import {MatDialog} from '@angular/material';
+import { ViewdialogComponent } from 'src/app/dialogs/viewdialog/viewdialog.component';
 
+
+export interface DialogData {
+  name: String;
+}
 @Component({
   
   selector: 'app-dashboard',
@@ -21,7 +27,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   views: View[];
   user : User[];
-  constructor(private service: ServiceService) {}
+  newViewName: string;
+  newview: View = new View();
+  constructor(private service: ServiceService, public dialog:MatDialog) {}
 
   /*recive view data */
 
@@ -164,6 +172,39 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.map.series.add(symbolSeries);
   }
 
+  openDialog(){
+    const dialogRef = this.dialog.open(ViewdialogComponent, {
+      data: {name: this.newViewName}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.newViewName = result;
+      console.log(this.newViewName);
+      this.createView();
+    });    
+  }
+
+
+  createView(){
+    this.newview.name = this.newViewName;
+    this.newview.txUser = 'El Johnn'
+    this.newview.txHost = 'localhost';
+    this.newview.txDate = Date.now().toString();
+    this.newview.active = 1;
+    this.newview.idDashboard = 1;
+
+    console.log(this.newview);
+    if (this.newViewName != null) {
+      this.service.createView(this.newview)
+      .subscribe(data => {
+        console.log('Success');
+      })
+    }else{
+      console.log('Fail');
+    }
+
+
+  }
 
 }

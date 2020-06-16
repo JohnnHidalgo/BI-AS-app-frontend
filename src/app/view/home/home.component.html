@@ -17,8 +17,12 @@
 <div>
     <mat-grid-list cols="4" rowHeight="2:1">
         <mat-grid-tile *ngFor="let dashboard of dashboardlist">
-            {{dashboard.name}}
-            <button (click)="dashboardRoute()" class="btn btn-info" style="margin-left: 10px;">Ver</button>
+            <div>
+                {{dashboard.name}}
+            </div>
+            <div>
+                <button (click)="dashboardRoute()" class="btn btn-info" style="margin-left: 10px;">Ver</button>
+            </div>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
