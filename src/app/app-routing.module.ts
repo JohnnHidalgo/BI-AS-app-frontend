@@ -9,6 +9,7 @@ import { LoginComponent } from './view/login/login.component';
 import { ViewComponent } from './view/view/view.component';
 import { DatasetComponent } from './view/dataset/dataset.component';
 import { LoginGuard } from './login.guard';
+import { NologinGuard } from './nologin.guard';
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch: 'full'},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path:'addUser',component:AddUserComponent, canActivate:[LoginGuard]},
   {path:'listUser',component:ListUserComponent, canActivate:[LoginGuard]},
   {path:'editUser',component:EditUserComponent, canActivate:[LoginGuard]},
-  {path: 'login', component:LoginComponent},
+  {path: 'login', component:LoginComponent, canActivate:[NologinGuard]},
   {path: 'view', component:ViewComponent, canActivate:[LoginGuard]},
   {path: 'dataset', component:DatasetComponent, canActivate:[LoginGuard]}
  

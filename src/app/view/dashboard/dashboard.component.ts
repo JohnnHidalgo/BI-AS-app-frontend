@@ -41,15 +41,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   getViews(){
     var idDash:number = +localStorage.getItem("id");
-    console.log("El id del dash");
-    console.log(idDash);
-    this.newview.name = 'TheView';
-    this.newview.idDashboard=idDash;
-    this.newview.active = 1;
-    this.newview.txDate = Date.now().toString();
-    this.newview.txHost = 'localhost';
-    this.newview.txUser = 'TheUser';
-    console.log(this.newview);
 
     this.service.getViewbyDashboard(idDash)
     .subscribe(view=>{

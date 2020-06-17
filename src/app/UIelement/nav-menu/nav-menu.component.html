@@ -12,10 +12,19 @@
 
     <mat-sidenav-content>
         <mat-toolbar color="primary">
+
+
             <button mat-button (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
             <img src="assets/img/3.png" width="7%">
+            <a href="#" (click)="logout()">logout</a>
+
+            <span class="example-spacer"></span>
+            <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+            <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
         </mat-toolbar>
+
+
     </mat-sidenav-content>
 </mat-sidenav-container>

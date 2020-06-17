@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit{
   nickname: string;
   password: string;
 
+  newUser: User = new User();
 
   login() {
 
@@ -35,6 +36,16 @@ export class LoginComponent implements OnInit{
         this.snackBar.open('Acceso denegado', '', {duration: 2000,})
       }
       
-    })
+    });
+    this.service.logingetUser(this.nickname)
+    .subscribe(user=>{
+      this.newUser=user;      
+      console.log(this.newUser);
+      localStorage.setItem('loginIdUser',this.newUser.idUser.toString());
+      localStorage.setItem('loginNameUser', this.newUser.nicknameUser.toString());
+    });
+
+    
+
   }
 }

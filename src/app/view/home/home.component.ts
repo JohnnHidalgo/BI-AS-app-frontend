@@ -25,7 +25,9 @@ export class HomeComponent implements OnInit {
   constructor(private router:Router, private service:ServiceService, public dialog:MatDialog) { }
   
   ngOnInit() {
-    this.service.getDashboard()
+    
+    var idUser:number = +localStorage.getItem("loginIdUser");
+    this.service.getDashboardbyUser(idUser)
     .subscribe(dashboard=>{
       this.dashboardlist = dashboard;
     });
@@ -72,8 +74,6 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(DashboarddialogComponent, {
       data: {name: this.newDashboardName}
     });
-
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.newDashboardName = result;

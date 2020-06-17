@@ -45,10 +45,15 @@ export class ServiceService {
 
   loginUser(user:User){
     return this.http.post<User>(this.Url+"/login",user);
-    //return this.http.put<User>(this.Url+"/"+user.idUser,user);  
-    //return this.http.post<User>(this.Url+"/login/",user);
+    console.log(user);
+  }
+  logingetUser(nickname:String){
+    return this.http.get<User>(this.Url+"/userNick/"+nickname);
   }
 
+  getDashboardbyUser(idUser:number){
+    return this.http.get<Dashboard[]>(this.dashboardUrl+"/userdash/"+idUser);
+  }
 
   getDashboard(){  
     return this.http.get<Dashboard[]>(this.dashboardUrl);
