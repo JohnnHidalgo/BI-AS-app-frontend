@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit{
     this.service.loginUser(logUser)
     .subscribe(data=>{
       if (data!=null) {
+        localStorage.setItem('username', this.nickname);
         this.snackBar.open('Bienvenido', '', {duration: 2000,});
         this.router.navigate(["home"]); 
       }else{

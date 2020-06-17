@@ -5,11 +5,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import { HttpClientModule } from '@angular/common/http';
-//import { AddUserComponent } from './UIelement/User/add-user/add-user.component';
-//import { ListUserComponent } from './UIelement/User/list-user/list-user.component';
-//import { EditUserComponent } from './UIelement/User/edit-user/edit-user.component';
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenuComponent } from './UIelement/nav-menu/nav-menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -36,6 +31,7 @@ import { ViewdialogComponent } from './UIelement/dialogs/viewdialog/viewdialog.c
 import { AddUserComponent } from './UIelement/User/add-user/add-user.component';
 import { EditUserComponent } from './UIelement/User/edit-user/edit-user.component';
 import { ListUserComponent } from './UIelement/User/list-user/list-user.component';
+import { LoginGuard } from './login.guard';
 
 @NgModule({
   declarations: [
@@ -78,7 +74,7 @@ import { ListUserComponent } from './UIelement/User/list-user/list-user.componen
     MatTabsModule,
     MatSnackBarModule,
   ],
-  providers: [ServiceService],
+  providers: [ServiceService, LoginGuard],
   bootstrap: [AppComponent],
   entryComponents: [DashboarddialogComponent, ViewdialogComponent]
 })
