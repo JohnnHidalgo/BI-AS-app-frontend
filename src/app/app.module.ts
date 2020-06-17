@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AddUserComponent } from './User/add-user/add-user.component';
-import { ListUserComponent } from './User/list-user/list-user.component';
-import { EditUserComponent } from './User/edit-user/edit-user.component';
+//import { AddUserComponent } from './UIelement/User/add-user/add-user.component';
+//import { ListUserComponent } from './UIelement/User/list-user/list-user.component';
+//import { EditUserComponent } from './UIelement/User/edit-user/edit-user.component';
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { NavMenuComponent } from './UIelement/nav-menu/nav-menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -29,15 +31,18 @@ import { MatInputModule } from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DatasetComponent } from './view/dataset/dataset.component';
-import { ViewdialogComponent } from './dialogs/viewdialog/viewdialog.component';
-import { DashboarddialogComponent } from './dialogs/dashboarddialog/dashboarddialog.component';
+import { DashboarddialogComponent } from './UIelement/dialogs/dashboarddialog/dashboarddialog.component';
+import { ViewdialogComponent } from './UIelement/dialogs/viewdialog/viewdialog.component';
+import { AddUserComponent } from './UIelement/User/add-user/add-user.component';
+import { EditUserComponent } from './UIelement/User/edit-user/edit-user.component';
+import { ListUserComponent } from './UIelement/User/list-user/list-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
-    ListUserComponent,
     EditUserComponent,
+    ListUserComponent,
     NavMenuComponent,
     HomeComponent,
     DashboardComponent,

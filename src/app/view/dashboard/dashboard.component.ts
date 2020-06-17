@@ -11,7 +11,7 @@ import { View } from 'src/app/model/View';
 import { ServiceService } from 'src/app/Service/service.service';
 import { User } from 'src/app/model/User';
 import {MatDialog} from '@angular/material';
-import { ViewdialogComponent } from 'src/app/dialogs/viewdialog/viewdialog.component';
+import { ViewdialogComponent } from 'src/app/UIelement/dialogs/viewdialog/viewdialog.component';
 import { Dashboard } from 'src/app/model/Dashboard';
 
 

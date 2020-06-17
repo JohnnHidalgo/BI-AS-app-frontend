@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit{
 
 
   login() {
-    console.log(this.nickname);
-    console.log(this.password);
 
     var logUser = new User();
     logUser.nicknameUser= this.nickname;
@@ -29,17 +27,13 @@ export class LoginComponent implements OnInit{
     console.log(logUser);
     this.service.loginUser(logUser)
     .subscribe(data=>{
-      
       if (data!=null) {
         this.snackBar.open('Bienvenido', '', {duration: 2000,});
         this.router.navigate(["home"]); 
-        
       }else{
         this.snackBar.open('Acceso denegado', '', {duration: 2000,})
       }
       
     })
-   
   }
-
 }

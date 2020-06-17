@@ -4,7 +4,7 @@ import { ResizeEvent } from 'angular-resizable-element';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Dashboard } from 'src/app/model/Dashboard';
 import {MatDialog} from '@angular/material';
-import { DashboarddialogComponent } from 'src/app/dialogs/dashboarddialog/dashboarddialog.component';
+import { DashboarddialogComponent } from 'src/app/UIelement/dialogs/dashboarddialog/dashboarddialog.component';
 
 
 export interface DialogData {
