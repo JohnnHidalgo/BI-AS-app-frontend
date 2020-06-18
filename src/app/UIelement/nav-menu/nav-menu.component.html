@@ -18,11 +18,20 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <img src="assets/img/3.png" width="7%">
-            <a href="#" (click)="logout()">logout</a>
 
             <span class="example-spacer"></span>
-            <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-            <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+            <p>
+                {{userName}}!
+            </p>
+            <mat-menu #appMenu="matMenu">
+                <button mat-menu-item (click)="logout()">Logout</button>
+                <button mat-menu-item>Help</button>
+            </mat-menu>
+
+            <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                    
+            <img src="assets/img/usericon.png">
+            </button>
         </mat-toolbar>
 
 

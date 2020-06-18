@@ -1,46 +1,42 @@
 <div class="mat-app-background basic-container">
 
     <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile>
-            <div class="example-boundary">
-                <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
 
-                    <!--echarts [initOpts]="initOpts" [options]="options"></echarts-->
-                </div>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
+        <mat-grid-tile cdkDrag>
             <div class="example-boundary">
-                <div class="example-box-middle" cdkDragBoundary=".example-boundary" cdkDrag>
-                    I can only be dragged within the dotted container
-                </div>
-                <div class="example-box-middle" cdkDragBoundary=".example-boundary" cdkDrag>
-                    I can only be dragged within the dotted container
-                </div>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <div class="example-boundary">
-                <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
-                    <div className="sampleRoot">
-                        <igx-geographic-map #map width="700px" height="500px" zoomable="true">
-                        </igx-geographic-map>
-                    </div>
+                <div class="example-box">
 
-                    <ng-template let-series="series" let-item="item" #template>
-                        <div>
-                            <span>
-                          {{item.name}}
-                      </span>
-                        </div>
-                    </ng-template>
+
+                    <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" [timeline]="timeline" (select)="onSelect($event)">
+                    </ngx-charts-line-chart>
+
                 </div>
             </div>
         </mat-grid-tile>
-        <mat-grid-tile>
+
+        <mat-grid-tile cdkDrag>
             <div class="example-boundary">
-                <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
-                    I can only be dragged within the dotted container
+                <div class="example-box">
+                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile cdkDrag>
+            <div class="example-boundary">
+                <div class="example-box">
+                    <igx-geographic-map #map width="700px" height="500px" zoomable="true">
+                    </igx-geographic-map>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile cdkDrag>
+            <div class="example-boundary">
+                <div class="example-box">
+                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
                 </div>
             </div>
         </mat-grid-tile>

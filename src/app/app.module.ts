@@ -33,6 +33,7 @@ import { EditUserComponent } from './UIelement/User/edit-user/edit-user.componen
 import { ListUserComponent } from './UIelement/User/list-user/list-user.component';
 import { LoginGuard } from './login.guard';
 import { NologinGuard } from './nologin.guard';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { NologinGuard } from './nologin.guard';
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [ServiceService, LoginGuard, NologinGuard],
   bootstrap: [AppComponent],

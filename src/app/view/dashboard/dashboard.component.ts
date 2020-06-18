@@ -1,9 +1,7 @@
 import { AfterViewInit, Component, ViewChild, OnInit, TemplateRef } from '@angular/core';
 import { IgxGeographicMapComponent } from 'igniteui-angular-maps';
 import { IgxShapeDataSource } from 'igniteui-angular-core';
-import { IgxGeographicHighDensityScatterSeriesComponent } from 'igniteui-angular-maps';
 import {IgxSizeScaleComponent, IgxValueBrushScaleComponent} from 'igniteui-angular-charts';
-import { IgxDataContext } from 'igniteui-angular-core';
 import { IgxGeographicProportionalSymbolSeriesComponent } from 'igniteui-angular-maps';
 import { MarkerType } from 'igniteui-angular-charts';
 import WorldLocations from './WorldLocations';
@@ -13,7 +11,6 @@ import { User } from 'src/app/model/User';
 import {MatDialog} from '@angular/material';
 import { ViewdialogComponent } from 'src/app/UIelement/dialogs/viewdialog/viewdialog.component';
 import { Dashboard } from 'src/app/model/Dashboard';
-
 
 export interface DialogData {
   name: String;
@@ -62,45 +59,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public tooltipTemplate: TemplateRef<object>;
   public geoLocations;
 
-  initOpts = {
-    renderer: 'svg',
-    width: 400,
-    height: 250
-  };
 
-  options = {
-    color: ['#3398DB'],
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow'
-      }
-    },
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true
-    },
-    xAxis: [
-      {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        axisTick: {
-          alignWithLabel: true
-        }
-      }
-    ],
-    yAxis: [{
-      type: 'value'
-    }],
-    series: [{
-      name: 'Counters',
-      type: 'bar',
-      barWidth: '60%',
-      data: [15, 52, 200, 334, 390, 330, 220]
-    }]
-  };
 
   public ngAfterViewInit(): void {
     const sds = new IgxShapeDataSource();
