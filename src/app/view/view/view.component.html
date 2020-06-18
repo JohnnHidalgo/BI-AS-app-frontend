@@ -18,7 +18,9 @@
         <mat-grid-tile cdkDrag>
             <div class="example-boundary">
                 <div class="example-box">
-                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
+                    <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel">
+                    </ngx-charts-bar-vertical>
                 </div>
             </div>
         </mat-grid-tile>
@@ -27,8 +29,19 @@
         <mat-grid-tile cdkDrag>
             <div class="example-boundary">
                 <div class="example-box">
-                    <igx-geographic-map #map width="700px" height="500px" zoomable="true">
-                    </igx-geographic-map>
+                    <div className="sampleRoot">
+                        <igx-geographic-map #map width="700px" height="500px" zoomable="true">
+                        </igx-geographic-map>
+                    </div>
+
+                    <ng-template let-series="series" let-item="item" #template>
+                        <div>
+                            <span>
+                                {{item.name}}
+                            </span>
+                        </div>
+                    </ng-template>
+
                 </div>
             </div>
         </mat-grid-tile>
@@ -36,7 +49,49 @@
         <mat-grid-tile cdkDrag>
             <div class="example-boundary">
                 <div class="example-box">
-                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
+                    <ngx-charts-bar-vertical-normalized [view]="view" [scheme]="colorScheme" [results]="multiTwo" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+                    </ngx-charts-bar-vertical-normalized>
+
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile cdkDrag>
+            <div class="example-boundary">
+                <div class="example-box">
+                    <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" (select)="onSelect($event)">
+                    </ngx-charts-pie-chart>
+
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile cdkDrag>
+            <div class="example-boundary">
+                <div class="example-box">
+                    <ngx-charts-area-chart [view]="view" [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" (select)="onSelect($event)">
+                    </ngx-charts-area-chart>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile cdkDrag>
+            <div class="example-boundary">
+                <div class="example-box">
+                    <ngx-charts-pie-grid [view]="view" [scheme]="colorScheme" [results]="single" (select)="onSelect($event)">
+                    </ngx-charts-pie-grid>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+
+
+        <mat-grid-tile cdkDrag>
+            <div class="example-boundary">
+                <div class="example-box">
+                    <ngx-charts-advanced-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient" (select)="onSelect($event)">
+                    </ngx-charts-advanced-pie-chart>
                 </div>
             </div>
         </mat-grid-tile>

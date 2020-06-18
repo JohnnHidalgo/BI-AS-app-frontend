@@ -4,13 +4,14 @@ import { IgxShapeDataSource } from 'igniteui-angular-core';
 import {IgxSizeScaleComponent, IgxValueBrushScaleComponent} from 'igniteui-angular-charts';
 import { IgxGeographicProportionalSymbolSeriesComponent } from 'igniteui-angular-maps';
 import { MarkerType } from 'igniteui-angular-charts';
-import WorldLocations from './WorldLocations';
+import WorldLocations from '../view/WorldLocations';
 import { View } from 'src/app/model/View';
 import { ServiceService } from 'src/app/Service/service.service';
 import { User } from 'src/app/model/User';
 import {MatDialog} from '@angular/material';
 import { ViewdialogComponent } from 'src/app/UIelement/dialogs/viewdialog/viewdialog.component';
 import { Dashboard } from 'src/app/model/Dashboard';
+import { Graphic } from 'src/app/model/Graphic';
 
 export interface DialogData {
   name: String;
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   newview: View = new View();
   newDash: Dashboard = new Dashboard();
 
+  graphic: Graphic = new Graphic();
   constructor(private service: ServiceService, public dialog:MatDialog) {}
 
   /*recive view data */
@@ -44,7 +46,18 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.views=view;
       console.log(this.views);
     })
+    this.graphic.idView=1;
+    this.graphic.idGraphictype=1;
+    this.graphic.name='LaPrueba';
+    this.graphic.active =1;
+    this.graphic.txDate=Date.now().toString();
+    this.graphic.txHost = 'USER';
+    this.graphic.txUser ='USER';
 
+    this.service.createGraphic(this.graphic)
+    .subscribe(data=>{
+      console.log('GARFICO CREADO');
+    });
   }
 
   getgraphics(view:View):void{

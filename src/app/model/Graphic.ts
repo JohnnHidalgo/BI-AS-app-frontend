@@ -5,4 +5,6 @@ export class Graphic{
     txHost:String;
     txDate:String;
     active:number;
+    idView:number;
+    idGraphictype:number;
 }

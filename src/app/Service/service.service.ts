@@ -19,9 +19,10 @@ export class ServiceService {
   dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard/';
   viewUrl='http://localhost:8080/ejemplo01/k1/view/';
   attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
-  graphicUrl='http://localhost:8080/ejemplo01/k1/grafico/';
+  graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
   graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
-
+  attributeGraphicUrl='http://localhost:8080/ejemplo01/k1/atributeGraphic/';
+  
 
 
   getUser(){  
@@ -98,13 +99,16 @@ export class ServiceService {
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
 
+  getAttributeGraphic(id:number){
+    return this.http.get<Attribute[]>(this.attributeUrl+'/columnGraphic/'+id);
+  }
 
   getAttribute(){
     return this.http.get<Attribute[]>(this.attributeUrl);
     //return this.http.get<View[]>(this.viewUrl);
   }
-  createAttribute(attribute:Attribute){
-    return this.http.post<Attribute>(this.attributeUrl+"/add/",attribute);
+  createAttribute(attribute:String[]){
+    return this.http.post<Attribute>(this.attributeUrl+"/addAtributeArray/",attribute);
   }
   getAttributeId(id:number){
     return this.http.get<Attribute>(this.attributeUrl+"/"+id);
@@ -125,7 +129,7 @@ export class ServiceService {
     //return this.http.get<View[]>(this.viewUrl);
   }
   createGraphic(graphic:Graphic){
-    return this.http.post<Graphic>(this.graphicUrl,graphic);
+    return this.http.post<Graphic>(this.graphicUrl+"/add/",graphic);
   }
   getGraphicId(id:number){
     return this.http.get<Graphic>(this.graphicUrl+"/"+id);

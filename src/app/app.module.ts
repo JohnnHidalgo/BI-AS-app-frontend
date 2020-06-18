@@ -14,8 +14,7 @@ import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ResizableModule } from 'angular-resizable-element';
-import * as echarts from 'echarts';
-import { NgxEchartsModule } from 'ngx-echarts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { IgxGeographicMapModule } from 'igniteui-angular-maps';
 import { IgxDataChartInteractivityModule } from 'igniteui-angular-charts';
 import { LoginComponent } from './view/login/login.component';
@@ -67,15 +66,16 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,
     DragDropModule,
     ResizableModule,
-    NgxEchartsModule.forRoot({
-      echarts
-    }),
+//    NgxEchartsModule.forRoot({
+//      echarts
+    //}),
     IgxGeographicMapModule,
     IgxDataChartInteractivityModule,
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxChartsModule
   ],
   providers: [ServiceService, LoginGuard, NologinGuard],
   bootstrap: [AppComponent],

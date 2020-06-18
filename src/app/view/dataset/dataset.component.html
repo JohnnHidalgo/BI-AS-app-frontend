@@ -3,22 +3,30 @@
     <table class="minimalistBlack" *ngIf="records.length > 0">
         <thead>
             <tr>
-                <th>ID </th>
-                <th>FirstName </th>
-                <th>LastName </th>
-                <th>Age </th>
-                <th>Position </th>
-                <th>Mobile </th>
+                <th>Fecha </th>
+                <th>La Paz</th>
+                <th>Cochabamba </th>
+                <th>Santa Cruz </th>
+                <th>Oruro </th>
+                <th>Potosi </th>
+                <th>Tarija </th>
+                <th>Chuquizaca </th>
+                <th>Beni </th>
+                <th>Pandoi </th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let record of records;let i = index;">
-                <td> <span>{{record.id}}</span> </td>
-                <td> <span>{{record.City}}</span> </td>
-                <td> <span>{{record.Discipline}}</span> </td>
-                <td> <span>{{record.Event}}</span> </td>
-                <td> <span>{{record.Eventgender}}</span> </td>
-                <td> <span>{{record.Medal}}</span> </td>
+                <td> <span>{{record.date}}</span> </td>
+                <td> <span>{{record.lapaz}}</span> </td>
+                <td> <span>{{record.cochabamba}}</span> </td>
+                <td> <span>{{record.santa}}</span> </td>
+                <td> <span>{{record.oruro}}</span> </td>
+                <td> <span>{{record.potosi}}</span> </td>
+                <td> <span>{{record.tarija}}</span> </td>
+                <td> <span>{{record.chuqui}}</span> </td>
+                <td> <span>{{record.beni}}</span> </td>
+                <td> <span>{{record.pando}}</span> </td>
             </tr>
         </tbody>
     </table>

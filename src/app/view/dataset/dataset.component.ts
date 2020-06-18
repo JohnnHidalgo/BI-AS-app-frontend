@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
-import { CSVRecord } from 'src/app/model/CSVRecord';
+import { CSVRecord } from 'src/app/model/csv/CSVRecord';
+import { CSVcovid } from 'src/app/model/csv/CSVcovid';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Attribute } from 'src/app/model/Attribute';
 
@@ -45,20 +46,32 @@ export class DatasetComponent implements OnInit {
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
     let csvArr = [];
-    console.log(csvRecordsArray);
-    this.atributeForBack.active=1;
-    //this.atributeForBack.data = csvRecordsArray;
-    this.atributeForBack.graphicidgraphic = 1;
-    this.atributeForBack.datos = 'frfr';
-    //console.log()
-    this.service.createAttribute(this.atributeForBack)
+    console.log(csvRecordsArray.toString());
+    console.log(csvRecordsArray[0].toString());
+    console.log(csvRecordsArray[1]);
+    console.log(csvRecordsArray[2]);
+    this.service.createAttribute(csvRecordsArray)
     .subscribe(data=>{
-      alert("Creacios Exitosa");
-    })
-    //createAtribute(this.atributeForBack);
+      console.log('Carga completa');
+    });
+
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let curruntRecord = (<string>csvRecordsArray[i]).split(',');
       if (curruntRecord.length == headerLength) {
+
+        let csvCovid:CSVcovid = new CSVcovid();
+        csvCovid.date = curruntRecord[0].trim();
+        csvCovid.lapaz = curruntRecord[1].trim();
+        csvCovid.cochabamba = curruntRecord[2].trim();
+        csvCovid.santa = curruntRecord[3].trim();
+        csvCovid.oruro = curruntRecord[4].trim();
+        csvCovid.potosi = curruntRecord[5].trim();
+        csvCovid.tarija = curruntRecord[6].trim();
+        csvCovid.chuqui = curruntRecord[7].trim();
+        csvCovid.beni = curruntRecord[8].trim();
+        csvCovid.pando = curruntRecord[9].trim();
+
+
         let csvRecord: CSVRecord = new CSVRecord();
         csvRecord.id = curruntRecord[0].trim();
         csvRecord.City = curruntRecord[1].trim();
@@ -69,11 +82,12 @@ export class DatasetComponent implements OnInit {
         csvRecord.NOC = curruntRecord[6].trim();
         csvRecord.Sport = curruntRecord[7].trim();
         csvRecord.Year = curruntRecord[8].trim();
-        csvArr.push(csvRecord);
+        csvArr.push(csvCovid);
       }
     }
     return csvArr;
   }
+  
   isValidCSVFile(file: any) {
     return file.name.endsWith(".csv");
   }
@@ -86,16 +100,10 @@ export class DatasetComponent implements OnInit {
     }
     return headerArray;
   }
+
   fileReset() {
     this.csvReader.nativeElement.value = "";
     this.records = [];
-  }
-
-  createAtribute(atribute:Attribute){
-    this.service.createAttribute(this.atribute)
-    .subscribe(data=>{
-      alert("Creacios Exitosa");
-    })
   }
 
 }

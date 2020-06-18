@@ -120,7 +120,7 @@ mwlResizable {
 
 .graphics {
     right: 100%;
-    height: 38%;
+    height: 100px;
 }
 
 .view-graphics {
@@ -132,7 +132,7 @@ mwlResizable {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20%;
+    height: 100px;
 }
 
 .filter {
