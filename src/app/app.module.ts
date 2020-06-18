@@ -34,7 +34,6 @@ import { ListUserComponent } from './UIelement/User/list-user/list-user.componen
 import { LoginGuard } from './login.guard';
 import { NologinGuard } from './nologin.guard';
 import {MatMenuModule} from '@angular/material/menu';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -76,8 +75,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatMenuModule,
-    NgxChartsModule 
+    MatMenuModule
   ],
   providers: [ServiceService, LoginGuard, NologinGuard],
   bootstrap: [AppComponent],
