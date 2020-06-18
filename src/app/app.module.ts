@@ -34,6 +34,7 @@ import { LoginGuard } from './login.guard';
 import { NologinGuard } from './nologin.guard';
 import {MatMenuModule} from '@angular/material/menu';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,9 +67,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,
     DragDropModule,
     ResizableModule,
-//    NgxEchartsModule.forRoot({
-//      echarts
-    //}),
+    
     IgxGeographicMapModule,
     IgxDataChartInteractivityModule,
     MatDialogModule,

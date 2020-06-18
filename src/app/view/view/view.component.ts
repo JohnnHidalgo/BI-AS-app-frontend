@@ -1,23 +1,28 @@
-import { Component, OnInit, TemplateRef,ViewChild,AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit, TemplateRef } from '@angular/core';
 import { View } from 'src/app/model/View';
 import { ServiceService } from 'src/app/Service/service.service';
 import { BarChart } from 'src/app/model/charts/BarChart';
 import {AttibuteGraphic} from 'src/app/model/AttributeGraphic';
-import { IgxGeographicMapComponent } from 'igniteui-angular-maps';
+import { IgxGeographicMapComponent } from 'igniteui-angular-maps';  
 import { IgxShapeDataSource } from 'igniteui-angular-core';
+import { IgxGeographicHighDensityScatterSeriesComponent } from 'igniteui-angular-maps';
 import {IgxSizeScaleComponent, IgxValueBrushScaleComponent} from 'igniteui-angular-charts';
+import { IgxDataContext } from 'igniteui-angular-core';
 import { IgxGeographicProportionalSymbolSeriesComponent } from 'igniteui-angular-maps';
 import { MarkerType } from 'igniteui-angular-charts';
 import WorldLocations from './WorldLocations';
-
-
 
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.css']
 })
-export class ViewComponent implements OnInit {
+export class ViewComponent implements OnInit, AfterViewInit {
+  @ViewChild ('map')
+  public map: IgxGeographicMapComponent;
+  @ViewChild('template')
+  public tooltipTemplate: TemplateRef<object>;
+  public geoLocations;
 
   atributeDataList: AttibuteGraphic [];
   barChart: BarChart= new BarChart();
@@ -33,12 +38,6 @@ export class ViewComponent implements OnInit {
     })
     
   }
-  @ViewChild ('map')
-  public map: IgxGeographicMapComponent;
-  @ViewChild('template')
-  public tooltipTemplate: TemplateRef<object>;
-  public geoLocations;
-
 
 
   public ngAfterViewInit(): void {
@@ -74,6 +73,7 @@ export class ViewComponent implements OnInit {
     this.addSeriesWith(WorldLocations.getAll());
   }
 
+
   public addSeriesWith(locations: any[]) {
     const sizeScale = new IgxSizeScaleComponent();
     sizeScale.minimumValue = 4;
@@ -102,9 +102,8 @@ export class ViewComponent implements OnInit {
     symbolSeries.markerOutline = "rgba(0,0,0,0.3)";
     symbolSeries.tooltipTemplate = this.tooltipTemplate;
 
-    //this.map.series.add(symbolSeries);
+    this.map.series.add(symbolSeries);
   }
-
 
   view: any[] = [700, 400];
 
@@ -124,8 +123,6 @@ export class ViewComponent implements OnInit {
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
-
-
   
   multi: any[] = [
     {
@@ -191,10 +188,6 @@ export class ViewComponent implements OnInit {
     }
   ];
 
-
-
-
-  
   public multiTwo = [
     {
       "name": "China",
