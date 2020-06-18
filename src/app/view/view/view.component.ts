@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { View } from 'src/app/model/View';
 import { ServiceService } from 'src/app/Service/service.service';
 import { BarChart } from 'src/app/model/charts/BarChart';
 
@@ -18,8 +17,7 @@ export class ViewComponent implements OnInit {
     
   }
 
-
-  view: any[] = [700, 400];
+  view: any[] = [400, 300];
 
   // options
   showXAxis = true;
@@ -70,7 +68,7 @@ export class ViewComponent implements OnInit {
         }
       ]
     }
-  ];
+  ];  
   
   initOpts = {
     renderer: 'svg',
