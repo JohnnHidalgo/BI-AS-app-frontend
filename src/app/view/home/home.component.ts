@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
   
   dashboardRoute(dash:Dashboard):void{
-    localStorage.setItem("id",dash.idDashboard.toString());
+    localStorage.setItem("idDash",dash.idDashboard.toString());
     console.log(dash.idDashboard.toString());
     this.router.navigate(["dashboard"]);
   }
@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
   }
 
   createDashboard(){
+    var idUser:number = +localStorage.getItem("loginIdUser");
     var str = this.newDashboardName;
     //dashboard2:Dashboard = new Dashboard();
     this.dashboard.name = this.newDashboardName;
@@ -91,7 +92,7 @@ export class HomeComponent implements OnInit {
     this.dashboard.txHost = 'localhost';
     this.dashboard.txDate = Date.now().toString();
     this.dashboard.active = 1;
-    this.dashboard.idUser = 1;
+    this.dashboard.idUser = idUser;
     if (str != null) {
       this.service.createDashboard(this.dashboard)
       .subscribe(data => {
@@ -99,8 +100,6 @@ export class HomeComponent implements OnInit {
       })
     }else{
       console.log('Fail');
-    }
-    
+    } 
   }
-
 }

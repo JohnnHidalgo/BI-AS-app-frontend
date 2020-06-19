@@ -1,16 +1,15 @@
 import { AfterViewInit, Component, ViewChild, OnInit, TemplateRef } from '@angular/core';
-import { View } from 'src/app/model/View';
 import { ServiceService } from 'src/app/Service/service.service';
 import { BarChart } from 'src/app/model/charts/BarChart';
 import {AttibuteGraphic} from 'src/app/model/AttributeGraphic';
 import { IgxGeographicMapComponent } from 'igniteui-angular-maps';  
 import { IgxShapeDataSource } from 'igniteui-angular-core';
-import { IgxGeographicHighDensityScatterSeriesComponent } from 'igniteui-angular-maps';
 import {IgxSizeScaleComponent, IgxValueBrushScaleComponent} from 'igniteui-angular-charts';
-import { IgxDataContext } from 'igniteui-angular-core';
 import { IgxGeographicProportionalSymbolSeriesComponent } from 'igniteui-angular-maps';
 import { MarkerType } from 'igniteui-angular-charts';
 import WorldLocations from './WorldLocations';
+import { CSVtotal } from 'src/app/model/csv/CSVtotal';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-view',
@@ -24,21 +23,20 @@ export class ViewComponent implements OnInit, AfterViewInit {
   public tooltipTemplate: TemplateRef<object>;
   public geoLocations;
 
+  public records: any[] = [];  
+  @ViewChild('csvReader') csvReader: any;  
+
   atributeDataList: AttibuteGraphic [];
   barChart: BarChart= new BarChart();
 
-  constructor(private service:ServiceService) { }
+  public userArray: any;
+  constructor(private service:ServiceService) { 
 
-  ngOnInit() {
-    this.service.getAttributeGraphic(1)
-    .subscribe(data=>{
-      console.log(data);
-      //this.atributeDataList=data;
-      console.log('Carga de datos');
-    })
-    
   }
 
+  ngOnInit() {   
+
+  }
 
   public ngAfterViewInit(): void {
     const sds = new IgxShapeDataSource();
@@ -105,7 +103,7 @@ export class ViewComponent implements OnInit, AfterViewInit {
     this.map.series.add(symbolSeries);
   }
 
-  view: any[] = [700, 400];
+  view: any[] = [600, 300];
 
   // options
   showXAxis = true;
@@ -123,6 +121,7 @@ export class ViewComponent implements OnInit, AfterViewInit {
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
+  
   
   multi: any[] = [
     {
@@ -163,28 +162,40 @@ export class ViewComponent implements OnInit, AfterViewInit {
   
   public single = [
     {
-      "name": "China",
-      "value": 2243772
+      "name": "La Paz",
+      "value": 1298
     },
     {
-      "name": "USA",
-      "value": 1126000
+      "name": "Cochabamba",
+      "value": 2041
     },
     {
-      "name": "Norway",
-      "value": 296215
+      "name": "Santa Cruz",
+      "value": 12725
     },
     {
-      "name": "Japan",
-      "value": 257363
+      "name": "Oruro",
+      "value": 420
     },
     {
-      "name": "Germany",
-      "value": 196750
+      "name": "Potosí",
+      "value": 378
     },
     {
-      "name": "France",
-      "value": 204617
+      "name": "Tarija",
+      "value": 175
+    },
+    {
+      "name": "Chuquisaca",
+      "value": 134
+    },
+    {
+      "name": "Beni",
+      "value": 3128
+    },
+    {
+      "name": "Pando",
+      "value": 386
     }
   ];
 

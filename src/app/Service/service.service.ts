@@ -21,8 +21,6 @@ export class ServiceService {
   attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
   graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
-  attributeGraphicUrl='http://localhost:8080/ejemplo01/k1/atributeGraphic/';
-  
 
 
   getUser(){  
@@ -99,9 +97,6 @@ export class ServiceService {
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }
 
-  getAttributeGraphic(id:number){
-    return this.http.get<Attribute[]>(this.attributeUrl+'/columnGraphic/'+id);
-  }
 
   getAttribute(){
     return this.http.get<Attribute[]>(this.attributeUrl);

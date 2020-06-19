@@ -39,25 +39,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   getViews(){
-    var idDash:number = +localStorage.getItem("id");
-
+    var idDash:number = +localStorage.getItem("idDash");
+    console.log('Hola:'+idDash);
     this.service.getViewbyDashboard(idDash)
     .subscribe(view=>{
       this.views=view;
       console.log(this.views);
     })
-    this.graphic.idView=1;
-    this.graphic.idGraphictype=1;
-    this.graphic.name='LaPrueba';
-    this.graphic.active =1;
-    this.graphic.txDate=Date.now().toString();
-    this.graphic.txHost = 'USER';
-    this.graphic.txUser ='USER';
 
-    this.service.createGraphic(this.graphic)
-    .subscribe(data=>{
-      console.log('GARFICO CREADO');
-    });
   }
 
   getgraphics(view:View):void{
@@ -153,12 +142,13 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
 
   createView(){
+    var idDash:number = +localStorage.getItem("idDash");
     this.newview.name = this.newViewName;
     this.newview.txUser = 'El Johnn'
     this.newview.txHost = 'localhost';
     this.newview.txDate = Date.now().toString();
     this.newview.active = 1;
-    this.newview.idDashboard = 1;
+    this.newview.idDashboard = idDash;
 
     console.log(this.newview);
     if (this.newViewName != null) {

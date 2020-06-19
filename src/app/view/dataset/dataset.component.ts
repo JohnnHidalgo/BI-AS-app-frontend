@@ -18,17 +18,19 @@ export class DatasetComponent implements OnInit {
   ngOnInit() {
   }
 
-  title = 'Angular7-readCSV';
   public records: any[] = [];
   @ViewChild('csvReader') csvReader: any;
 
   uploadListener($event: any): void {
     let text = [];
     let files = $event.srcElement.files;
+
     if (this.isValidCSVFile(files[0])) {
       let input = $event.target;
+      console.log(input);
       let reader = new FileReader();
       reader.readAsText(input.files[0]);
+      console.log(input.files[0]);
       reader.onload = () => {
         let csvData = reader.result;
         let csvRecordsArray = (<string>csvData).split(/\r\n|\n/);

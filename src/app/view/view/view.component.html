@@ -2,18 +2,7 @@
 
     <mat-grid-list cols="2" rowHeight="2:1">
 
-        <mat-grid-tile cdkDrag>
-            <div class="example-boundary">
-                <div class="example-box">
 
-
-                    <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-                        [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" [timeline]="timeline" (select)="onSelect($event)">
-                    </ngx-charts-line-chart>
-
-                </div>
-            </div>
-        </mat-grid-tile>
 
         <mat-grid-tile cdkDrag>
             <div class="example-boundary">
@@ -37,16 +26,7 @@
             </div>
         </mat-grid-tile>
 
-        <mat-grid-tile cdkDrag>
-            <div class="example-boundary">
-                <div class="example-box">
-                    <ngx-charts-bar-vertical-normalized [view]="view" [scheme]="colorScheme" [results]="multiTwo" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-                        [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
-                    </ngx-charts-bar-vertical-normalized>
 
-                </div>
-            </div>
-        </mat-grid-tile>
         <mat-grid-tile cdkDrag>
             <div class="example-boundary">
                 <div class="example-box">
@@ -56,15 +36,7 @@
                 </div>
             </div>
         </mat-grid-tile>
-        <mat-grid-tile cdkDrag>
-            <div class="example-boundary">
-                <div class="example-box">
-                    <ngx-charts-area-chart [view]="view" [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-                        [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" (select)="onSelect($event)">
-                    </ngx-charts-area-chart>
-                </div>
-            </div>
-        </mat-grid-tile>
+
 
 
         <mat-grid-tile cdkDrag>
