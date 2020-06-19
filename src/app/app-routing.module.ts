@@ -10,9 +10,10 @@ import { ViewComponent } from './view/view/view.component';
 import { DatasetComponent } from './view/dataset/dataset.component';
 import { LoginGuard } from './login.guard';
 import { NologinGuard } from './nologin.guard';
+import { PresentationComponent } from './view/presentation/presentation.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/login',pathMatch: 'full'},
+  {path:'',redirectTo:'/presentation',pathMatch: 'full'},
   {path:'home',component:HomeComponent, canActivate:[LoginGuard]},
   {path:'dashboard',component:DashboardComponent, canActivate:[LoginGuard]},
   {path:'addUser',component:AddUserComponent, },
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'editUser',component:EditUserComponent, canActivate:[LoginGuard]},
   {path: 'login', component:LoginComponent, canActivate:[NologinGuard]},
   {path: 'view', component:ViewComponent, canActivate:[LoginGuard]},
-  {path: 'dataset', component:DatasetComponent, canActivate:[LoginGuard]}
+  {path: 'dataset', component:DatasetComponent, canActivate:[LoginGuard]},
+  {path: 'presentation', component:PresentationComponent}
  
   
 ];

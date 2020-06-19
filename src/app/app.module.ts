@@ -33,6 +33,7 @@ import { ListUserComponent } from './UIelement/User/list-user/list-user.componen
 import { LoginGuard } from './login.guard';
 import { NologinGuard } from './nologin.guard';
 import {MatMenuModule} from '@angular/material/menu';
+import { PresentationComponent } from './view/presentation/presentation.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {MatMenuModule} from '@angular/material/menu';
     DatasetComponent,
     ViewdialogComponent,
     DashboarddialogComponent,
+    PresentationComponent,
   ],
   imports: [
     BrowserModule,
