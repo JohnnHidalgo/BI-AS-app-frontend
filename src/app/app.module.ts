@@ -34,7 +34,10 @@ import { LoginGuard } from './login.guard';
 import { NologinGuard } from './nologin.guard';
 import {MatMenuModule} from '@angular/material/menu';
 import { PresentationComponent } from './view/presentation/presentation.component';
-
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import pdfFonts from "pdfmake/build/vfs_fonts";
+// Set the fonts to use
+PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
   declarations: [

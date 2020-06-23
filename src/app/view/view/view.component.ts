@@ -111,9 +111,9 @@ export class ViewComponent implements OnInit, AfterViewInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Number';
+  xAxisLabel = 'Departamentos';
   showYAxisLabel = true;
-  yAxisLabel = 'Color Value';
+  yAxisLabel = 'Casos Totales';
   timeline = true;
 
   //pie

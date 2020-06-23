@@ -12,6 +12,7 @@ import {MatDialog} from '@angular/material';
 import { ViewdialogComponent } from 'src/app/UIelement/dialogs/viewdialog/viewdialog.component';
 import { Dashboard } from 'src/app/model/Dashboard';
 import { Graphic } from 'src/app/model/Graphic';
+import { PdfMakeWrapper, Txt, Img, QR,Toc, Canvas, Line } from 'pdfmake-wrapper';
 
 export interface DialogData {
   name: String;
@@ -163,4 +164,29 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   }
 
+
+
+  async generatepdf(){
+
+    const pdf = new PdfMakeWrapper();
+    
+    pdf.add(
+      new Txt('Hello').bold().italics().end
+    );
+    pdf.add(
+      new Txt('HOLA A TODOS').end 
+    );
+    pdf.add(
+      new QR('my code').fit(100).end
+    );
+    pdf.add( await new Img('assets/img/info1.png').fit([400,400]).build() );
+    pdf.add( await new Img('assets/img/info2.png').fit([400,400]).build() );
+    pdf.add( await new Img('assets/img/info3.png').fit([400,400]).build() );
+    pdf.add( await new Img('assets/img/info4.png').fit([400,400]).build() );
+    pdf.add( await new Img('assets/img/info5.png').fit([400,400]).build() );
+  
+    pdf.create().open();
+  }
+
 }
+
