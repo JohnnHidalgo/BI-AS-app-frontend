@@ -12,7 +12,7 @@ import {MatDialog} from '@angular/material';
 import { ViewdialogComponent } from 'src/app/UIelement/dialogs/viewdialog/viewdialog.component';
 import { Dashboard } from 'src/app/model/Dashboard';
 import { Graphic } from 'src/app/model/Graphic';
-import { PdfMakeWrapper, Txt, Img, QR,Toc, Canvas, Line } from 'pdfmake-wrapper';
+import { PdfMakeWrapper, Txt, Img, QR,Toc, Canvas, Line,Table,SVG } from 'pdfmake-wrapper';
 
 export interface DialogData {
   name: String;
@@ -168,22 +168,54 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   async generatepdf(){
 
+    var nameDash:String = localStorage.getItem("idDash");
     const pdf = new PdfMakeWrapper();
     
     pdf.add(
-      new Txt('Hello').bold().italics().end
+      new Table([
+        [ await new Img('assets/img/2.png').fit([100,100]).build(),new Txt('Reporte generado por BI-AS').bold().end, new QR('my code').fit(100).end],
+      ]).alignment('center').end
+    );
+
+    pdf.add(
+      new SVG('<svg width="100" height="10" viewBox="0 0 300 200">...</svg>').end
+    );
+
+    pdf.add(
+      new Txt('Grafico 1').alignment('center').end
+    );
+    pdf.add( await new Img('assets/img/info1.png').alignment('center').fit([400,400]).build() );
+    pdf.add(
+      new SVG('<svg width="100" height="40" viewBox="0 0 300 200">...</svg>').end
+    );
+
+    pdf.add(
+      new Txt('Grafico 2').alignment('center').end
+    );
+    pdf.add( await new Img('assets/img/info2.png').alignment('center').fit([400,400]).build() );
+    pdf.add(
+      new SVG('<svg width="100" height="170" viewBox="0 0 300 200">...</svg>').end
+    );
+
+    pdf.add(
+      new Txt('Grafico 3').alignment('center').end
+    );
+    pdf.add( await new Img('assets/img/info3.png').alignment('center').fit([400,400]).build() );
+    pdf.add(
+      new SVG('<svg width="100" height="40" viewBox="0 0 300 200">...</svg>').end
+    );
+
+    pdf.add(
+      new Txt('Grafico 4').alignment('center').end
+    );
+    pdf.add( await new Img('assets/img/info4.png').alignment('center').fit([400,400]).build() );
+    pdf.add(
+      new SVG('<svg width="100" height="290" viewBox="0 0 300 200">...</svg>').end
     );
     pdf.add(
-      new Txt('HOLA A TODOS').end 
+      new Txt('Grafico 5').alignment('center').end
     );
-    pdf.add(
-      new QR('my code').fit(100).end
-    );
-    pdf.add( await new Img('assets/img/info1.png').fit([400,400]).build() );
-    pdf.add( await new Img('assets/img/info2.png').fit([400,400]).build() );
-    pdf.add( await new Img('assets/img/info3.png').fit([400,400]).build() );
-    pdf.add( await new Img('assets/img/info4.png').fit([400,400]).build() );
-    pdf.add( await new Img('assets/img/info5.png').fit([400,400]).build() );
+    pdf.add( await new Img('assets/img/info5.png').alignment('center').fit([400,400]).build() );
   
     pdf.create().open();
   }

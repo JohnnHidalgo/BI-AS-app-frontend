@@ -72,7 +72,6 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatInputModule,
     DragDropModule,
     ResizableModule,
-    
     IgxGeographicMapModule,
     IgxDataChartInteractivityModule,
     MatDialogModule,
