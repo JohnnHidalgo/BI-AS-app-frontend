@@ -1,4 +1,10 @@
-# Ejemplo
+
+# Imágenes del Proyecto
+![Alt text](https://github.com/JohnnHidalgo/BI-AS-app-frontend/blob/master/001.PNG)
+![Alt text](https://github.com/JohnnHidalgo/BI-AS-app-frontend/blob/master/002.PNG)
+![Alt text](https://github.com/JohnnHidalgo/BI-AS-app-frontend/blob/master/003.PNG)
+
+# Proyecto
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
